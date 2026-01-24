@@ -36,6 +36,7 @@ const signup = async (req, res)=>{
      })
    }
    catch(err){
+     console.error(err);
      return res.status(500).json({
       status : false,
       body : `Error : ${err.message}`

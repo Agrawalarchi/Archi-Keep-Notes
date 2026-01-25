@@ -9,7 +9,7 @@ const signup = async (req, res)=>{
    const {name, email, password, adminKey } = req.body;
    const admin = ((adminKey) && (adminKey==process.env.ADMINKEY))? true:false;
    try{
-     const exists = await userModel.findOne(email);
+     const exists = await userModel.findOne({email});
      if(exists){
        return res.status(409).json({
         status : false,

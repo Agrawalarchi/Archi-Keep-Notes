@@ -15,11 +15,7 @@ app.use(cookieParser());
 app.use("/",routes);
 
 setDbConnection().then((i)=>{
-   app.listen(8080, ()=>{
-     console.log("database connected server is listening");
-   });
 }).catch((err)=>{
-    console.log(err);
     process.exit(1);
 })
 

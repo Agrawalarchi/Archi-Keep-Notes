@@ -9,6 +9,13 @@ const signup = async (req, res)=>{
    const {name, email, password, adminKey } = req.body;
    const admin = ((adminKey) && (adminKey==process.env.ADMINKEY))? true:false;
    try{
+     const exists = await userModel.findOne(email);
+     if(exists){
+       return res.status(409).json({
+        status : false,
+        body : "User Already Exists"
+       })
+     }
      const salt = await bcrypt.genSalt();
      const hashedPassword = await bcrypt.hash(password,salt);
      const user = new userModel({name, email, password:hashedPassword, admin })
@@ -20,8 +27,6 @@ const signup = async (req, res)=>{
      await welcomeNote.save();
      user.notes.push(welcomeNote._id);
      await user.save();
-
-    
      const token = jwt.sign({email, admin}, process.env.SECRETKEY, {expiresIn:"7d"});
      const cookieDetails = {
        httpOnly : true,

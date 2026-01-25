@@ -5,6 +5,10 @@ A full-stack note-taking web application that allows users to securely create, e
 # Live Demo
 [Visit The site ](https://archi-keep-notes-frontend.vercel.app/)
 
+## API Testing
+Postman collection is available in the `postman` folder.
+Import `PrimeTradeAiAssignment.postman_collection.json` to test all APIs.
+
 ---
 # Features
   ## Authentication & Authorization

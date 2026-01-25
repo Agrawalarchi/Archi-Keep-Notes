@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-app.listen(8080);
 
 app.use(cors({origin:true, credentials:true}));
 app.use(express.urlencoded({extended:true}));
@@ -15,11 +14,14 @@ app.use(cookieParser());
 
 
 setDbConnection().then((i)=>{
-   console.log("database connected");
+   app.listen(8080, ()=>{
+     console.log("database connected server is listening");
+   });
 }).catch((err)=>{
-    process.exit(1);
     console.log(err);
+    process.exit(1);
 })
+
 
 app.use("/",routes);
 

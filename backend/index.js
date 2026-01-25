@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 
+app.use("/",routes);
 
 setDbConnection().then((i)=>{
    app.listen(8080, ()=>{
@@ -21,8 +22,5 @@ setDbConnection().then((i)=>{
     console.log(err);
     process.exit(1);
 })
-
-
-app.use("/",routes);
 
 module.exports = app;

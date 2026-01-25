@@ -22,7 +22,7 @@ export default function AddNote(){
          return;
        }
        event.preventDefault();
-       const unpFormData = await fetch(`${process.env.NEXT_PUBLIC_BACKENDURL}/notes`, {method:"POST", credentials:"include", headers:{"Content-Type": "application/json"}, body:JSON.stringify(formData)});
+       const unpFormData = await fetch(`${process.env.NEXT_PUBLIC_BACKENDURL}/notes`, {method:"PUT", credentials:"include", headers:{"Content-Type": "application/json"}, body:JSON.stringify(formData)});
        const prFormData = await unpFormData.json();
        if(prFormData.status){
               setTimeout(()=>{

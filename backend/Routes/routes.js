@@ -11,7 +11,7 @@ routes.post("/auth/signout", signout);
 routes.get("/auth/checkAuth",checkAuth);
 
 routes.get("/notes", showNotes);
-routes.post("/notes", addNote);
+routes.put("/notes", addNote);
 
 routes.get("/notes/:noteId", getNote);
 routes.patch("/notes/:noteId",editNote);

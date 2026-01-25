@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 
-async function setDbConnection(){
+const setDbConnection=async()=>{
   try{
       await mongoose.connect(process.env.MONGODBURL);
   }
   catch(err){
-      console.log(err);
+      throw err;
   }
 }
 

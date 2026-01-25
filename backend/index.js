@@ -11,7 +11,6 @@ setDbConnection().then((i)=>{
     process.exit(1);
 })
 
-
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({origin:true, credentials:true}));
@@ -19,9 +18,5 @@ app.use(express.json());
 
 
 app.use("/",routes);
-
-app.listen(8080, ()=>{
-    console.log("listening..")
-});
 
 module.exports = app;

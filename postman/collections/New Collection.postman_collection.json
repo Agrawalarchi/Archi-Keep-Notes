@@ -10,10 +10,29 @@
       "name": "Signup",
       "id": "ac93fb89-3a12-4eba-87c4-9b44443b2f10",
       "request": {
-        "method": "GET",
+        "method": "POST",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"name\": \"Archi Agrawal\",\r\n\"email\": \"test01@gmail.com\",\r\n\"password\": \"1234567890\",\r\n\"adminKey\": \"DFRPG7614R\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/auth/signup",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "signup"
+          ]
         }
       },
       "response": []
@@ -22,10 +41,29 @@
       "name": "Signin",
       "id": "2132f20a-b6be-4f8e-9e37-24a220e9f383",
       "request": {
-        "method": "GET",
+        "method": "POST",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"email\": \"test01@gmail.com\",\r\n\"password\": \"1234567890\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/auth/signin",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "signin"
+          ]
         }
       },
       "response": []
@@ -37,7 +75,17 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/auth/checkAuth",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "checkAuth"
+          ]
         }
       },
       "response": []
@@ -49,7 +97,16 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/notes",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "notes"
+          ]
         }
       },
       "response": []
@@ -58,10 +115,28 @@
       "name": "Add a note",
       "id": "fc5d038a-652c-4f0c-8f2a-06305c2925f3",
       "request": {
-        "method": "GET",
+        "method": "PUT",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"title\": \"New Note\",\r\n\"content\": \"Some content\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/notes",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "notes"
+          ]
         }
       },
       "response": []
@@ -70,10 +145,29 @@
       "name": "Edit a note",
       "id": "a0b35156-a80a-4105-a823-a02d83327aea",
       "request": {
-        "method": "GET",
+        "method": "PATCH",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"title\": \"Updated Title\",\r\n\"content\": \"Updated Content\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/notes/6975c64d16757fb6790da22b",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "notes",
+            "6975c64d16757fb6790da22b"
+          ]
         }
       },
       "response": []
@@ -85,7 +179,17 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/notes/6975c64d16757fb6790da22b",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "notes",
+            "6975c64d16757fb6790da22b"
+          ]
         }
       },
       "response": []
@@ -94,10 +198,20 @@
       "name": "Delete a note",
       "id": "bebb5c69-1a40-47e7-b9d6-30aa98d1bbe4",
       "request": {
-        "method": "GET",
+        "method": "DELETE",
         "header": [],
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/notes/6975c57216757fb6790da224",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "notes",
+            "6975c57216757fb6790da224"
+          ]
         }
       },
       "response": []
@@ -106,10 +220,20 @@
       "name": "Signout",
       "id": "17aab0f0-4553-44f1-88b4-d0d2f91da7cc",
       "request": {
-        "method": "GET",
+        "method": "POST",
         "header": [],
         "url": {
-          "raw": ""
+          "raw": "https://archi-keep-notes-backend.vercel.app/auth/signout",
+          "protocol": "https",
+          "host": [
+            "archi-keep-notes-backend",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "signout"
+          ]
         }
       },
       "response": []

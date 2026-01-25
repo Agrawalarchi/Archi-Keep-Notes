@@ -1,0 +1,118 @@
+{
+  "info": {
+    "_postman_id": "1621d485-14d4-40b8-b6fc-5e4dced34041",
+    "name": "PrimeTradeAiAssignment",
+    "description": "StartFragment\n\n# Notes Management App – API Tutorial\n\nThis tutorial explains how to use the **Notes Management App API** that supports **User Authentication (Signup/Login)** and **CRUD operations on Notes**. The API is documented using a Postman collection.\n\n---\n\n## 1\\. Overview\n\nThe Notes Management App allows users to:\n\n- Register and log in\n    \n- Create personal notes\n    \n- View all notes\n    \n- Update existing notes\n    \n- Delete notes\n    \n\nAll note-related APIs are **protected** and require authentication.\n\n---\n\n## 2\\. Tech Stack (Assumed)\n\n- Backend: Node.js / Java (Spring Boot) _(based on API behavior)_\n    \n- Authentication: JWT (JSON Web Token)\n    \n- Database: MongoDB / MySQL\n    \n- API Testing Tool: Postman\n    \n\n---\n\n## 3\\. Authentication Flow\n\n1. User signs up\n    \n2. User logs in\n    \n3. Server returns a JWT token\n    \n4. Token is sent in headers for all protected APIs\n    \n\n**Header Format:**\n\n```\nAuthorization: Bearer <token>\n\n ```\n\n---\n\n## 4\\. API Endpoints (As Implemented)\n\n**Base URL:** `http://localhost:PORT`\n\nAuthentication is handled using **HTTP-only cookies** containing a JWT token (not Authorization headers).\n\n---\n\n### 4.1 Signup\n\n**Endpoint:**\n\n```\nPOST /auth/signup\n\n ```\n\n**Request Body:**\n\n``` json\n{\n  \"name\": \"Archi Agrawal\",\n  \"email\": \"test01@gmail.com\",\n  \"password\": \"1234567890\",\n  \"adminKey\": \"DFRPG7614R\"\n}\n\n ```\n\n**Logic:**\n\n- Checks if user already exists\n    \n- Hashes password using bcrypt\n    \n- Creates a welcome note automatically\n    \n- Stores JWT in cookie\n    \n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": \"SignUp Successfull\"\n}\n\n ```\n\n---\n\n### 4.2 Signin\n\n**Endpoint:**\n\n```\nPOST /auth/signin\n\n ```\n\n**Request Body:**\n\n``` json\n{\n  \"email\": \"test01@gmail.com\",\n  \"password\": \"1234567890\"\n}\n\n ```\n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": \"Login Successfull\"\n}\n\n ```\n\n> \n\nJWT token is stored in **HTTP-only cookie** named `token`.\n\n \n  \n\n---\n\n### 4.3 Check Authentication\n\n**Endpoint:**\n\n```\nGET /auth/checkAuth\n\n ```\n\n**Purpose:**\n\n- Verifies if user is already logged in\n    \n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": \"Already LoggedIn\",\n  \"adminStatus\": false\n}\n\n ```\n\n---\n\n### 4.4 Signout\n\n**Endpoint:**\n\n```\nPOST /auth/signout\n\n ```\n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": \"Log Out Successfull\"\n}\n\n ```\n\n---\n\n## 5\\. Notes APIs (Protected)\n\nAll notes APIs require a valid `token` cookie.\n\n---\n\n### 5.1 Get All Notes\n\n**Endpoint:**\n\n```\nGET /notes\n\n ```\n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": [\n    {\n      \"_id\": \"noteId\",\n      \"title\": \"My Note\",\n      \"content\": \"Note content\"\n    }\n  ]\n}\n\n ```\n\n---\n\n### 5.2 Add Note\n\n**Endpoint:**\n\n```\nPUT /notes\n\n ```\n\n**Request Body:**\n\n``` json\n{\n  \"title\": \"New Note\",\n  \"content\": \"Some content\"\n}\n\n ```\n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": {\n    \"title\": \"New Note\",\n    \"content\": \"Some content\"\n  }\n}\n\n ```\n\n---\n\n### 5.3 Get Single Note\n\n**Endpoint:**\n\n```\nGET /notes/:noteId\n\n ```\n\n---\n\n### 5.4 Edit Note\n\n**Endpoint:**\n\n```\nPATCH /notes/:noteId\n\n ```\n\n**Request Body:**\n\n``` json\n{\n  \"title\": \"Updated Title\",\n  \"content\": \"Updated Content\"\n}\n\n ```\n\n---\n\n### 5.5 Delete Note\n\n**Endpoint:**\n\n```\nDELETE /notes/:noteId\n\n ```\n\n**Response:**\n\n``` json\n{\n  \"status\": true,\n  \"body\": \"Note Deleted Successfully\"\n}\n\n ```\n\n---\n\n## 6 Common Errors\n\n| Status Code | Meaning |\n| --- | --- |\n| 400 | Bad Request |\n| 401 | Unauthorized (Invalid Token) |\n| 403 | Access Denied |\n| 500 | Server Error |\n\n---\n\n## 7\\. Conclusion\n\nThis documentation serves as a beginner-friendly tutorial and interview-ready explanation of a secure CRUD-based Notes Management application.\n\nEndFragment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Signup",
+      "id": "ac93fb89-3a12-4eba-87c4-9b44443b2f10",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Signin",
+      "id": "2132f20a-b6be-4f8e-9e37-24a220e9f383",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Checking logged in or not",
+      "id": "cf82584d-fc02-41f3-bc7b-4ed57f065c1b",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all notes",
+      "id": "6808659a-5bab-4f46-8fb5-6b711416e9d2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add a note",
+      "id": "fc5d038a-652c-4f0c-8f2a-06305c2925f3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edit a note",
+      "id": "a0b35156-a80a-4105-a823-a02d83327aea",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get a note",
+      "id": "e9011c1c-64be-48a1-98ee-c32f874da559",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete a note",
+      "id": "bebb5c69-1a40-47e7-b9d6-30aa98d1bbe4",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Signout",
+      "id": "17aab0f0-4553-44f1-88b4-d0d2f91da7cc",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}

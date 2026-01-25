@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express();
 const routes = require("./Routes/routes.js");
 const cors = require('cors');
 const cookieParser = require('cookie-parser');

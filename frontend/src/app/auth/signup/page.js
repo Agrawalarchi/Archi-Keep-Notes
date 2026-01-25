@@ -67,11 +67,11 @@ export default function Signup(){
              <section className="formWrapper">
                  <form className="formBox" onSubmit={trgrSubmission} autoComplete="off">
                        <label className="w-full text-center text-3xl">Welcome Onboard </label>
-                       <input className="credentialInput" minLength={2} autoComplete="off" autoFocus type="text" name="name" onChange={(e)=>{trgrChange(e)}} placeholder="Enter your name" value={formData.name}/>
-                       <input className="credentialInput"  type="email" name="email" onChange={(e)=>{trgrChange(e)}} placeholder="Enter your email" value={formData.email}/>
-                       <input className="credentialInput" minLength={8} type={(formData.showPass)?"text":"password"} name="password" onChange={(e)=>{trgrChange(e)}}  placeholder="Enter your password" value={formData.password}/>
+                       <input className="credentialInput" required minLength={2} autoComplete="off" autoFocus type="text" name="name" onChange={(e)=>{trgrChange(e)}} placeholder="Enter your name" value={formData.name}/>
+                       <input className="credentialInput" required type="email" name="email" onChange={(e)=>{trgrChange(e)}} placeholder="Enter your email" value={formData.email}/>
+                       <input className="credentialInput" required minLength={8} type={(formData.showPass)?"text":"password"} name="password" onChange={(e)=>{trgrChange(e)}}  placeholder="Enter your password" value={formData.password}/>
                         
-                       {(formData.choice=="Admin")?<input className="credentialInput" placeholder="Enter the admin key" type="text" name="adminKey" autoComplete="new-password" onChange={(e)=>{trgrChange(e)}} value={formData.adminKey}/>:""}
+                       {(formData.choice=="Admin")?<input className="credentialInput"  required placeholder="Enter the admin key" type="text" name="adminKey" autoComplete="new-password" onChange={(e)=>{trgrChange(e)}} value={formData.adminKey}/>:""}
                        
                        <div className="choiceInputWrapper">
                         

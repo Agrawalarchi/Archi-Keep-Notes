@@ -68,8 +68,8 @@ export default function Signin(){
 
                        <label className="w-full text-center text-3xl">Welcome Back</label>
 
-                       <input className="credentialInput" autoFocus minLength={2} name="email" type="email" onChange={(e)=>{trgrChange(e)}} placeholder="Enter your email" value={formData.email}/>
-                       <input className="credentialInput" minLength={8}  name="password" type={(formData.showPass)?"text":"password"} onChange={(e)=>{trgrChange(e)}} placeholder="Enter your password" value={formData.password}/>
+                       <input className="credentialInput" required autoFocus minLength={2} name="email" type="email" onChange={(e)=>{trgrChange(e)}} placeholder="Enter your email" value={formData.email}/>
+                       <input className="credentialInput" required minLength={8}  name="password" type={(formData.showPass)?"text":"password"} onChange={(e)=>{trgrChange(e)}} placeholder="Enter your password" value={formData.password}/>
                        
                        <div className="choiceInputWrapper">
                            <h1 onClick={trgrShowPass} className="showPassButton">{(formData.showPass)?"✖ Hide Password":"✔ Show Password"}</h1>

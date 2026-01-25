@@ -6,6 +6,11 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
+setDbConnection().then((i)=>{
+}).catch((err)=>{
+    process.exit(1);
+})
+
 
 app.use(cors({origin:true, credentials:true}));
 app.use(express.urlencoded({extended:true}));
@@ -14,9 +19,6 @@ app.use(cookieParser());
 
 app.use("/",routes);
 
-setDbConnection().then((i)=>{
-}).catch((err)=>{
-    process.exit(1);
-})
+
 
 module.exports = app;
